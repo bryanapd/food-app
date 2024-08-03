@@ -11,7 +11,7 @@ const MainHeader = () => (
     <header className="flex justify-between items-center py-8 px-4 md:px-[10%]">
       <Link
         href="/"
-        className="flex items-center justify-center gap-8 text-[#ddd6cb] font-bold font-montserrat tracking-wide uppercase text-2xl"
+        className="flex items-center justify-center gap-8 text-[#ddd6cb] font-bold font-montserrat tracking-wider uppercase text-2xl"
       >
         <Image
           width={100}

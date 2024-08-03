@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -8,7 +10,6 @@ import macncheeseImg from "@/assets/macncheese.jpg";
 import pizzaImg from "@/assets/pizza.jpg";
 import schnitzelImg from "@/assets/schnitzel.jpg";
 import tomatoSaladImg from "@/assets/tomato-salad.jpg";
-import classes from "./image-slideshow.module.css";
 
 const images = [
   { image: burgerImg, alt: "A delicious, juicy burger" },
@@ -40,13 +41,17 @@ export default function ImageSlideshow() {
           key={index}
           src={image.image}
           //   className={index === currentImageIndex ? classes.active : ""}
-          className="w-full h-full object-cover absolute top-0 left-0 opacity-0 scale-110 -translate-x-4 -rotate-6 transition ease-in-out delay-150"
+          //   .slideshow .active {
+          //     z-index: 1;
+          //     opacity: 1;
+          //     transform: scale(1) translateX(0) rotate(0);
+          //   }
+          className={
+            index === currentImageIndex
+              ? "active:z-1 opacity-100 scale(1) translate-x-0 rotate-0"
+              : "w-full h-full object-cover absolute top-0 left-0 opacity-0 scale-110 -translate-x-4 -rotate-6 transition ease-in-out delay-150"
+          }
           alt={image.alt}
-        //   .slideshow .active {
-        //     z-index: 1;
-        //     opacity: 1;
-        //     transform: scale(1) translateX(0) rotate(0);
-        //   }
         />
       ))}
     </div>
