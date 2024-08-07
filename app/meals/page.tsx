@@ -1,8 +1,12 @@
-import MealsGrid from "@/components/meals/MealsGrid";
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 
-function Meals() {
+import MealsGrid from "@/components/meals/MealsGrid";
+import { getMeals } from "@/lib/meals";
+import { Meal as MealType } from "@/types/meals";
+
+const Meals = async () => {
+  const meals = (await getMeals()) as MealType[];
   return (
     <>
       <header className="w-[90%] max-w-6xl text-[#ddd6cb] mt-12 mb-0 ml-16 mr-auto">
@@ -23,11 +27,11 @@ function Meals() {
         </p>
       </header>
       <main>
-        <MealsGrid />
+        <MealsGrid meals={meals} />
       </main>
     </>
   );
-}
+};
 
 export default Meals;
 

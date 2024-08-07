@@ -1,20 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Meal } from "@/types/meals";
 
-interface Props {
-  title: string;
-  slug: string;
-  image: string;
-  summary: string;
-  creator: string;
-}
-export default function MealItem({
-  title,
-  slug,
-  image,
-  summary,
-  creator,
-}: Props) {
+const MealItem = ({ title, slug, image, summary, creator }: Meal) => {
   return (
     <article className="flex flex-col justify-between h-full rounded shadow-sm overflow-hidden transition-all ease-in-out text-[#ddd6cb] bg-transparent text-gradien">
       <header>
@@ -43,7 +31,9 @@ export default function MealItem({
       </div>
     </article>
   );
-}
+};
+
+export default MealItem;
 
 // .meal
 //     background: linear-gradient(90deg, #2c1e19, #25200f);

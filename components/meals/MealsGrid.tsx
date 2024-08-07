@@ -1,19 +1,8 @@
 import React from "react";
 import MealItem from "./MealItem";
+import { Meal, Meals } from "@/types/meals";
 
-interface Meal {
-  id: number;
-  title: string;
-  slug: string;
-  image: string;
-  summary: string;
-  creator: string;
-}
-
-interface Props {
-  meals?: Meal[];
-}
-const MealsGrid = ({ meals }: Props) => (
+const MealsGrid = ({ meals }: Meals) => (
   <ul>
     {(meals || []).map((meal) => (
       <li key={meal.id}>
