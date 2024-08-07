@@ -9,8 +9,9 @@ const MealItem = ({ title, slug, image, summary, creator }: Meal) => {
         <Image
           src={image}
           alt={title}
-          fill
-          className="relative h-60"
+          width={500}
+          height={500}
+          className="relative h-60 w-auto"
           objectFit="cover"
         />
         <div className="pt-2 pb-4 pr-4">

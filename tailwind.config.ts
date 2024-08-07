@@ -21,6 +21,19 @@ const config: Config = {
       textColor: {
         "gradient-text": "transparent",
       },
+      gridTemplateColumns: {
+        "auto-fill-minmax": "repeat(auto-fill, minmax(20rem, 1fr))",
+      },
+      animation: {
+        loading: "loading 1.2s ease-in-out infinite",
+      },
+      keyframes: {
+        loading: {
+          "0%": { color: "#e9e9e9" },
+          "50%": { color: "#b89b84" },
+          "100%": { color: "#e9e9e9" },
+        },
+      },
     },
   },
   plugins: [
