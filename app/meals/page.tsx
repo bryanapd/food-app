@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 
 import MealsGrid from "@/components/meals/MealsGrid";
@@ -7,6 +7,10 @@ import { Meal as MealType } from "@/types/meals";
 
 const Meals = async () => {
   const meals = (await getMeals()) as MealType[];
+  return <MealsGrid meals={meals} />;
+};
+
+const MealsPage = async () => {
   return (
     <>
       <header className="w-[90%] max-w-6xl text-[#ddd6cb] mt-12 mb-0 ml-16 mr-auto">
@@ -27,27 +31,16 @@ const Meals = async () => {
         </p>
       </header>
       <main>
-        <MealsGrid meals={meals} />
+        <Suspense
+          fallback={
+            <p className="text-center animate-loading">Fetching meals...</p>
+          }
+        >
+          <Meals />
+        </Suspense>
       </main>
     </>
   );
 };
 
-export default Meals;
-
-// .loading {
-//   text-align: center;
-//   animation: loading 1.2s ease-in-out infinite;
-// }
-
-// @keyframes loading {
-//   0% {
-//     color: #e9e9e9;
-//   }
-//   50% {
-//     color: #b89b84;
-//   }
-//   100% {
-//     color: #e9e9e9;
-//   }
-// }
+export default MealsPage;

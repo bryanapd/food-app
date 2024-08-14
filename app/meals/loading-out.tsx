@@ -5,3 +5,6 @@ const MealsLoadingPage = () => (
 );
 
 export default MealsLoadingPage;
+
+
+//alternative for suspense
