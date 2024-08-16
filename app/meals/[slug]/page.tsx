@@ -1,9 +1,12 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { getMeal } from "@/lib/meals";
 import { Meal as MealType } from "@/types/meals";
 
 const MealDetails = ({ params }: { params: { slug: string } }) => {
   const meal = getMeal(params.slug) as MealType;
+
+  if (!meal) return notFound();
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
   return (
