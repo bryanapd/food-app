@@ -8,3 +8,7 @@ export const getMeals = async (): Promise<Meal[]> => {
   // throw new Error("Loading meals failed");
   return db.prepare("SELECT * FROM meals").all() as Meal[];
 };
+
+export const getMeal = (slug: string) => {
+  return db.prepare("SELECT * FROM meals WHERE SLUG = ?").get(slug) as Meal;
+};
